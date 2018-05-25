@@ -1,0 +1,71 @@
+<html>
+<body>
+<div id="wrapper">
+		<div id="contents">
+			<% //parts and type_of_background are passed from the webpack config to the ejs renderer
+			for (let part of parts) {
+				let name = part.alias.replace("_", " ")
+				//don't load parts that don't have html pages
+				if (!["development_content_script", "content_scripts", "scripts"].includes(part.name)
+					|| (part == "background" && type_of_background !== "js")) {%>
+				<a  class="chrome-extension" href="<%=part.alias%>/<%=part.alias%>.html"><div><span><%=name%></span></div></a>
+			<%}
+			}%>
+			<%if (!env.server_only) {
+				//you can add more links here to chrome only pages
+			%> 
+				<a href="chrome://extensions"><div><span>Manage Chrome Extensions</span></div></a>
+			<%}%>
+		</div>
+	</div>
+</body>
+<style>
+html, body {
+	margin: 0;
+	background: #212121;
+}
+a {
+	text-decoration: none;
+}
+
+#wrapper {
+	display:flex;
+	height: 100vh;
+	flex-direction:row;
+	flex-wrap:nowrap;
+	padding: 30px;
+	justify-content:center;
+	align-items:center;
+}
+#contents {
+	display: flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	box-sizing: border-box;
+	justify-content:center;
+	align-items:center;
+}
+
+#contents > a {
+	flex: none;
+}
+
+#contents > a > div {
+	text-align: center;
+	background: #0048ff38;
+	border-radius: 10px;
+	border: 3px solid #007effc7;
+	padding: 2em;
+	margin: 10px;
+	color: #007bff;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+#contents > a > div:hover {
+	background: #0066ffcc;
+	border: 3px solid #79aeff;
+	color: #d3e3ff;
+}
+</style>
+</html>

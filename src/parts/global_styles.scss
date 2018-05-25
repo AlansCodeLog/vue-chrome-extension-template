@@ -1,0 +1,37 @@
+body, html, button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+}
+.text {
+	text-align: center;
+}
+.small-text {
+	text-align: center;
+	font-size: 1rem;
+}
+.reply {
+	color: #4b7db3;
+}
+.message {
+	color: #41b883;
+}
+img {
+	display: block;
+	margin: 0 auto;
+}
+button {
+	font-size: 1em;
+	cursor:pointer;
+	border: 2px solid #4b7db3;
+	background: #4edb9c;
+	color: black;
+	padding: 0.3rem;
+	margin: 0.7rem auto 0.3rem;
+	display: block;
+	outline: none;
+	&:hover {
+		border: 2px solid #41b883;
+		background: rgb(204, 255, 204);
+		color: rgb(0, 51, 0);
+	}
+}

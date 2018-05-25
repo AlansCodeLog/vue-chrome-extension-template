@@ -1,0 +1,74 @@
+{
+	"name": "vue-chrome-extension-template",
+	"version": "0.0.2",
+	"description": "Vue webpack (v4) template for chrome extensions (supports sass out of the box) + automatic manifest.json and icon generation.",
+	"scripts": {
+		"build": "webpack --mode production",
+		"dev": "start http://localhost:8080/ & nodemon --exec npm run script:dev",
+		"dev:server": "start http://localhost:8080/ & nodemon --watch 'webpack.config.js' --watch 'package.json' --watch \"manifest_configurator_helper.js\" --exec npm run script:dev:server",
+		"dev:build": "start http://localhost:8080/ & nodemon --watch 'webpack.config.js' --watch 'package.json' --watch \"manifest_configurator_helper.js\" --exec npm run script:dev:build",
+		"//": "the pure scripts without the nodemon watch",
+		"script:dev": "webpack-dev-server --mode development --progress",
+		"script:dev:server": "webpack-dev-server --mode development --progress --env.server_only",
+		"script:dev:build": "webpack --mode development"
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"dist/*",
+			"src/*",
+			"docs/*",
+			".vscode/*",
+			"README.md"
+		]
+	},
+	"devDependencies": {
+		"babel-core": "^6.1.2",
+		"babel-eslint": "^8.2.3",
+		"babel-loader": "^7.1.4",
+		"babel-plugin-transform-runtime": "^6.1.2",
+		"babel-preset-es2015": "^6.1.2",
+		"babel-preset-stage-0": "^6.1.2",
+		"babel-runtime": "^6.26.0",
+		"clean-webpack-plugin": "^0.1.17",
+		"copy-webpack-plugin": "^4.2.0",
+		"css-loader": "^0.28.11",
+		"ejs-loader": "^0.3.1",
+		"eslint": "^4.19.1",
+		"eslint-friendly-formatter": "^4.0.1",
+		"eslint-loader": "^2.0.0",
+		"eslint-plugin-vue": "^4.5.0",
+		"file-loader": "^1.1.11",
+		"fs-extra": "^6.0.1",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^3.2.0",
+		"mini-css-extract-plugin": "^0.4.0",
+		"node-sass": "^4.9.0",
+		"nodemon": "^1.17.5",
+		"sass-loader": "^7.0.1",
+		"sharp": "^0.20.2",
+		"string-replace-loader": "^2.1.1",
+		"style-loader": "^0.21.0",
+		"vue-hot-reload-api": "^2.2.4",
+		"vue-html-loader": "^1.0.0",
+		"vue-loader": "^15.2.0",
+		"vue-style-loader": "^4.1.0",
+		"vue-template-compiler": "^2.5.16",
+		"webpack": "^4.8.3",
+		"webpack-cli": "^2.1.4",
+		"webpack-dev-server": "^3.1.4",
+		"write-file-webpack-plugin": "^4.3.2"
+	},
+	"dependencies": {
+		"vue": "^2.5.13"
+	},
+	"license": "MIT",
+	"author": "Alan <alanscodelog@gmail.com>",
+	"homepage": "https://github.com/AlansCodeLog/vue-chrome-extension-template#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlansCodeLog/vue-chrome-extension-template.git"
+	},
+	"bugs": {
+		"url": "https://github.com/AlansCodeLog/vue-chrome-extension-template/issues"
+	}
+}
